@@ -1,14 +1,20 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import HomeCards from './components/HomeCards'
-import JobListings from './components/JobListings'
-import ViewAllJobs from './components/ViewAllJobs'
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import MainLayout from './layouts/MainLayout'
-import HomePage from './pages/HomePage'
-import JobsPage from './pages/JobsPage'
-import NotFoundPage from './pages/NotFoundPage'
+// import React from "react";
+// import Navbar from "./components/Navbar";
+// import Hero from "./components/Hero";
+// import HomeCards from "./components/HomeCards";
+// import JobListings from "./components/JobListings";
+// import ViewAllJobs from "./components/ViewAllJobs";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import HomePage from "./pages/HomePage";
+import JobsPage from "./pages/JobsPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import JobPage from "./pages/JobPage";
 
 // const App = () => {
 //   const name = 'John';
@@ -35,25 +41,28 @@ import NotFoundPage from './pages/NotFoundPage'
 // }
 
 // export default App
-const router = createBrowserRouter(createRoutesFromElements (
-  <Route path='/' element={<MainLayout/>}>
-    <Route index element={<HomePage/>}></Route>
-    <Route path='/jobs' element={<JobsPage/>}></Route>
-    <Route path='*' element={<NotFoundPage/>}></Route>
-  </Route>
-))
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<MainLayout />}>
+      <Route index element={<HomePage />}></Route>
+      <Route path="/jobs" element={<JobsPage />}></Route>
+      <Route path="/jobs/:id" element={<JobPage />}></Route>
+      <Route path="*" element={<NotFoundPage />}></Route>
+    </Route>
+  )
+);
 
 const App = () => {
-//   return (
-//     <>
-//     <Navbar/>
-//     <Hero title='Become a React Developer' subtitle= 'Find the React job that fits your skills'/>
-//     <HomeCards/>
-//     <JobListings/>
-//     <ViewAllJobs/>
-//     </>
-// )
-return <RouterProvider router={router}/>
-}
+  //   return (
+  //     <>
+  //     <Navbar/>
+  //     <Hero title='Become a React Developer' subtitle= 'Find the React job that fits your skills'/>
+  //     <HomeCards/>
+  //     <JobListings/>
+  //     <ViewAllJobs/>
+  //     </>
+  // )
+  return <RouterProvider router={router} />;
+};
 
-export default App
+export default App;
