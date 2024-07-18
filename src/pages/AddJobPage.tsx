@@ -24,7 +24,7 @@ const AddJobPage: React.FC<AddJobPageProps> = ({ addJobSubmit }) => {
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const newJob = {
+    const newJob: JobType = {
       title,
       type,
       location,

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 
 export interface JobType {
-  id: string;
+  id?: string;
   title: string;
   type: string;
   description: string;
