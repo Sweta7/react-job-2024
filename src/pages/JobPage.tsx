@@ -1,7 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useParams, useLoaderData, Link } from "react-router-dom";
-import Spinner from "../components/Spinner";
+import { useLoaderData, Link } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -51,7 +49,7 @@ interface DeleteJobPageProps {
 }
 
 const JobPage: React.FC<DeleteJobPageProps> = ({ deleteJobSubmit }) => {
-  const { id } = useParams<{ id: string }>();
+  //const { id } = useParams<{ id: string }>();
   const job = useLoaderData() as JobType;
   const navigate = useNavigate();
   const onDeleteClick = (job: JobType) => {
