@@ -2,6 +2,7 @@ import React from "react";
 import JobListing from "./JobListing";
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
+import jobsList from "../jobs.json";
 
 export interface JobType {
   id?: string;
@@ -23,7 +24,8 @@ interface JobListingsProps {
 }
 
 const JobListings: React.FC<JobListingsProps> = ({ isHome = false }) => {
-  const [jobs, setJobs] = useState([]);
+  //const [jobs, setJobs] = useState([]); // use when using json server
+  const [jobs, setJobs] = useState(jobsList);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
