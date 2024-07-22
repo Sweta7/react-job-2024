@@ -4,6 +4,7 @@ import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoaderFunctionArgs } from "react-router-dom";
+import jobsList from "../jobs.json";
 
 interface JobType {
   id: string;
@@ -150,10 +151,23 @@ const JobPage: React.FC<DeleteJobPageProps> = ({ deleteJobSubmit }) => {
   );
 };
 
+// To read data using json server
+// const jobLoader = async ({ params }: LoaderFunctionArgs) => {
+//   const { id } = params;
+//   const res = await fetch(`/api/jobs/${id}`);
+//   const data = await res.json();
+//   return data;
+// };
+
+// to read data from json file
 const jobLoader = async ({ params }: LoaderFunctionArgs) => {
   const { id } = params;
-  const res = await fetch(`/api/jobs/${id}`);
-  const data = await res.json();
+  // Find the job with the specified id
+  const data = jobsList.jobs.find((job) => job.id === id);
+
+  if (!data) {
+    throw new Error(`Job with id ${id} not found`);
+  }
   return data;
 };
 
