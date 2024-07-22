@@ -25,7 +25,7 @@ interface JobListingsProps {
 
 const JobListings: React.FC<JobListingsProps> = ({ isHome = false }) => {
   //const [jobs, setJobs] = useState([]); // use when using json server
-  const [jobs, setJobs] = useState(jobsList);
+  const [jobs, setJobs] = useState(jobsList.jobs);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
