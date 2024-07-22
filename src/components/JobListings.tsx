@@ -24,16 +24,17 @@ interface JobListingsProps {
 }
 
 const JobListings: React.FC<JobListingsProps> = ({ isHome = false }) => {
-  //const [jobs, setJobs] = useState([]); // use when using json server
+  //const [jobs, setJobs] = useState([]); // uncomment when using json server
   const [jobs, setJobs] = useState(jobsList.jobs);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchJobs = async () => {
-      const apiUrl = isHome ? "api/jobs?_limit=3" : "api/jobs";
+      //const apiUrl = isHome ? "api/jobs?_limit=3" : "api/jobs"; // uncomment when using json server
+      const data = isHome ? jobs.slice(0, 3) : jobs;
       try {
-        const res = await fetch(apiUrl);
-        const data = await res.json();
+        // const res = await fetch(apiUrl); // uncomment when using json server
+        // const data = await res.json(); // uncomment when using json server
         setJobs(data);
       } catch (error) {
         console.log("Error fetching data", error);
