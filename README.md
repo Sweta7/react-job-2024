@@ -1,4 +1,4 @@
-# Link to Demo App: [https://sweta7.github.io/arya-financial-services/](https://clinquant-truffle-415ab7.netlify.app/)
+# [Link to Demo App](https://clinquant-truffle-415ab7.netlify.app/)
 
 
 # React + TypeScript + Vite
